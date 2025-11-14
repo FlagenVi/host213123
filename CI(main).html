@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<body>
+<div class="survey-container">
+    <header class="survey-intro">
+        <h1>ДЕКЛАРАЦИЯ О НАЛИЧИИ ИЛИ ОТСУТСТВИИ КОНФЛИКТА ИНТЕРЕСОВ</h1>
+        <p>Настоящая Декларация содержит разделы, заполняемые Работником или
+            Руководителем. Рекомендуется раскрыть информацию о каждом реальном
+            или потенциальном конфликте интересов. Эта информация подлежит
+            последующей всесторонней проверке уполномоченным органом организации
+            в установленном порядке.</p>
+        <p>Настоящий документ носит строго конфиденциальный характер и
+            предназначен исключительно для внутреннего использования
+            организации. Содержание документа не подлежит раскрытию каким-либо
+            третьим сторонам.</p>
+    </header>
+
+    <form id="surveyForm">
+        <!-- Заявление -->
+        <section class="survey-section">
+            <h2>ЗАЯВЛЕНИЕ</h2>
+
+            <div class="survey-form-row">
+                <label for="applicantFullName" class="required">От кого (ФИО
+                    работника, заполнившего Декларацию)</label>
+                <input type="text"
+                    id="applicantFullName"
+                    name="applicantFullName"
+                    value="<%= userdata.fullname %>"
+                    readonly>
+            </div>
+
+            <div class="survey-form-row">
+                <label for="position" class="required">Должность</label>
+                <input type="text" id="position" name="position" readonly
+                    value="<%= userdata.position_name%>">
+            </div>
+
+            <div class="survey-form-row">
+                <label for="organization" class="required">Организация</label>
+                <input type="text" id="organization" name="organization"
+                    readonly value='<%= userdata.org_name%>'>
+            </div>
+
+            <div class="survey-form-row">
+                <label for="filledAt" class="required">Дата заполнения</label>
+                <input type="date" id="filledAt" name="filledAt" required
+                    readonly>
+            </div>
+
+            <div class="survey-form-row">
+                <label>Декларация охватывает период времени</label>
+                <div class="survey-inline">
+                    <input type="date" id="periodFrom" name="periodFrom"
+                        value="2025-12-01" class="locked-date" tabindex="-1"
+                        aria-readonly="true" readonly>
+                    <span class="survey-sep">—</span>
+                    <input type="date" id="periodTo" name="periodTo"
+                        value="2025-12-31" class="locked-date" tabindex="-1"
+                        aria-readonly="true" readonly>
+                </div>
+            </div>
+
+            <div class="survey-confirmations">
+                <div class="survey-label">Подписывая настоящее Заявление, я
+                    подтверждаю, что ознакомлен(а) с:</div>
+                <div class="survey-checkbox">
+                    <input type="checkbox" id="ackCodeOfEthics"
+                        name="ackCodeOfEthics" required>
+                    <label for="ackCodeOfEthics" class="required"><a
+                            href="http://localhost:0000">Кодекс корпоративной
+                            этики Компании РМ Рейл</a></label>
+                </div>
+                <div class="survey-checkbox">
+                    <input type="checkbox" id="ackConflictPolicy"
+                        name="ackConflictPolicy" required>
+                    <label for="ackConflictPolicy" class="required"><a
+                            href="http://localhost:0000">Положение по управлению
+                            конфликтом интересов РМ Рейл</a></label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел 1: Внешние интересы и активы -->
+        <section class="survey-section">
+            <h3>1. Внешние интересы и активы</h3>
+            <!--1-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.1. Я в настоящее время и/или
+                    последние три года, предшествующие заполнению декларации,
+                    владею прямо или косвенно акциями // долями // паями или
+                    иными любыми финансовыми инструментами, и // или являюсь
+                    членом органа управления, и // или являюсь руководителем с
+                    правом принятия управленческих решений (директором,
+                    генеральным директором, председателем и т.д.) в сторонней
+                    организации и/или являюсь действующим индивидуальным
+                    предпринимателем.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_1" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_1" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--2-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.2. Я осуществляю работу по
+                    совместительству (в любой форме) вне занятости в компаниях
+                    РМ Рейл.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_2" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_2" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--3-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.3. В настоящее время я
+                    участвую в сторонней деятельности, кроме описанной выше,
+                    которая конкурирует с интересами РМ Рейл, в любой форме,
+                    включая, но не ограничиваясь, следующее направление:
+                    приобретение или отчуждение каких-либо активов (имущества)
+                    или возможности развития бизнеса или бизнес-проектов.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_3" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_3" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--4-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.4. Я в последние 2 года
+                    перед трудоустройством в РМ Рейл являлся
+                    государственными/муниципальными служащими либо лицом,
+                    замещающим государственные должности, либо членом
+                    законодательного или исполнительного органа государственной
+                    власти.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_4" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_4" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--5-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.5. Мои аффилированные лица,
+                    действующие в моих интересах, владеют прямо или косвенно
+                    акциями (долями, паями) или любыми другими финансовыми
+                    интересами или являются // являлись членом органа управления
+                    сторонней организации.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_5" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_5" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Повторяющаяся группа для аффилированных лиц -->
+            <div id="affiliatesGroup" class="survey-child-group"
+                style="display: none;">
+                <div class="survey-repeatable">
+                    <div class="survey-repeatable-header">
+                        <div class="survey-title">Аффилированное лицо</div>
+                    </div>
+                    <div id="affiliatesContainer"></div>
+                    <div class="survey-repeatable-footer">
+                        <button type="button" class="survey-btn"
+                            id="addAffiliateBtn">Добавить юр. лицо</button>
+                    </div>
+                </div>
+            </div>
+            <!--6-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.6. Мои аффилированные лица
+                    являются действующими в настоящее время /являлись последние
+                    2 года государственными/муниципальными служащими либо
+                    лицами, замещающими государственные должности, либо членами
+                    законодательного или исполнительного органа государственной
+                    власти.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_6" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_6" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--7-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.7. Я и мои аффилированные
+                    лица являемся сотрудниками Группы РМ Рейл (в том числе
+                    связанных с ней структур, материнских, зависимых, дочерних,
+                    а также иных входящих в Группу РМ Рейл лиц.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_7" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_7" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--8-->
+            <div class="survey-form-row">
+                <div class="survey-label required">1.8. Я оказываю/оказывал
+                    помощь моим аффилированным лицам при приеме их на работу в
+                    Группу РМ Рейл; даю/давал оценку их работе,
+                    оказывал/оказываю содействие их продвижению на вышестоящую
+                    должность, оцениваю/оценивал их работу, определяю/определял
+                    размер их заработной платы, премии, других выплат или
+                    освобождал их от дисциплинарной ответственности.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_8" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q1_8" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел 2: Личные интересы и честное ведение бизнеса -->
+        <section class="survey-section">
+            <h3>2. Личные интересы и честное ведение бизнеса</h3>
+            <!--9-->
+            <div class="survey-form-row">
+                <div class="survey-label required">2.1. Я участвую/участвовал в
+                    какой-либо сделке Группы РМ Рейл (как лицо, принимающее
+                    решение, ответственное за выполнение договора
+                    поставки/услуг, утверждающее приемку выполненной работы,
+                    оформление, или утверждение платежных документов, их
+                    проведение в платёжных системах и т.п.), в которой я
+                    имею/имел личную заинтересованность
+                    (материальную/нематериальную).</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q2_1" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q2_1" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+            <!--10-->
+            <div class="survey-form-row">
+                <div class="survey-label required">2.2. Я получал / получаю как
+                    Работник или член органа управления Участника Группы РМ Рейл
+                    денежные средства, материальные или иные нематериальные
+                    блага от контрагента за свое воздействие в заключении сделки
+                    между контрагентом и РМ Рейл.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q2_2" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q2_2" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Группа комментария для q2_2 -->
+            <div id="q2_2_group" class="survey-child-group"
+                style="display: none;">
+                <div class="survey-form-row">
+                    <label for="q2_2_comment"
+                        class="required">Комментарий</label>
+                    <textarea id="q2_2_comment" name="q2_2_comment"
+                        required></textarea>
+                </div>
+            </div>
+            <!--11-->
+            <div class="survey-form-row">
+                <div class="survey-label required">2.3. Я передавал денежные
+                    средства или иные блага от имени Участника Группы РМ Рейл,
+                    сотрудником или членом органа управления которого я являюсь,
+                    долностному лицу или работнику другой организации (в том
+                    числе государственному и муниципальному служащему), с цельбю
+                    получения их содействия в заключении сделк и иных
+                    благ.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q2_3" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q2_3" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Группа комментария для q2_3 -->
+            <div id="q2_3_group" class="survey-child-group"
+                style="display: none;">
+                <div class="survey-form-row">
+                    <label for="q2_3_comment"
+                        class="required">Комментарий</label>
+                    <textarea id="q2_3_comment" name="q2_3_comment"
+                        required></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел 3: Конфиденциальная информация -->
+        <section class="survey-section">
+            <h3>3. Конфиденциальная информация</h3>
+            <!--12-->
+            <div class="survey-form-row">
+                <div class="survey-label required">3.1. Я раскрывал в своих
+                    личных (в том числе финансовых) интересах физическому или
+                    юридическому лицу какую-либо конфиденциальную информацию
+                    компании РМ Рейл, ставшую мне известной в рамках моих
+                    должностных обязанностей.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q3_1" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q3_1" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел 4: Ресурсы организации -->
+        <section class="survey-section">
+            <h3>4. Ресурсы организации</h3>
+            <!--13-->
+            <div class="survey-form-row">
+                <div class="survey-label required">4.1. Я использую //
+                    использовал средства группы РМ Рейл, время, оборудование
+                    (включая средства связи и доступ в интернет) или информацию,
+                    которой располагают компании Группы РМ Рейл, в целях, не
+                    связанных с работой в Группе РМ Рейл.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q4_1" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q4_1" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел 5: Прочие вопросы -->
+        <section class="survey-section">
+            <h3>5. Прочие вопросы</h3>
+            <!--14-->
+            <div class="survey-form-row">
+                <div class="survey-label required">5.1. Мне известно о каких-либо
+                    иных обстоятельствах, не указанных выше, которые вызывают
+                    или могут вызвать Конфликт Интересов.</div>
+                <div class="survey-inline">
+                    <label class="survey-radio">
+                        <input type="radio" name="q5_1" value="true" required>
+                        <span>Да</span>
+                    </label>
+                    <label class="survey-radio">
+                        <input type="radio" name="q5_1" value="false" required>
+                        <span>Нет</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Согласие -->
+        <section class="survey-section">
+            <h2>Согласие на обработку персональных данных и подтверждение</h2>
+            <p>Настоящим подтверждаю, что я прочитал и понял все вышеуказанные
+                вопросы, а мои ответы и любая пояснительная информация являются
+                полными, правдивыми и правильными. Я осознаю, что утаивание или
+                неполное раскрытие информации будет рассматриваться Компанией
+                как недобросовестное информирование, вне зависимости от того,
+                оказало ли это отрицательное воздействие на деятельность
+                Компании.</p><br />
+            <p>Все сведения предоставлены в добровольном порядке. Я даю согласие
+                на её проверку Компанией РМ Рейл. Обязуюсь уведомлять
+                непосредственного Руководителя о любых соответствующих
+                изменениях в личных обстоятельствах в течение года после
+                подписания соответствующей декларации.</p><br />
+            <p>В соответствии с требованиями статьи 9 Федерального закона от
+                27.07.2006 № 152-ФЗ «О персональных данных», письменно
+                подтверждаю своё согласие на обработку моих персональных данных
+                ООО «УК РМ Рейл», расположенному по адресу: Россия, 430006,
+                Республика Мордовия, г. Саранск, ул. Лодыгина, д. 11, и
+                использование их при проведении внутренних проверок в Компании.
+                Согласие действует со дня его подписания и до дня отзыва в
+                письменной форме.</p>
+            <br />
+            <div class="survey-checkbox">
+                <input type="checkbox" id="consentAccepted"
+                    name="consentAccepted" required>
+                <label for="consentAccepted" class="required">С условиями
+                    согласен(на)</label>
+            </div>
+        </section>
+
+        <div id="errorsContainer" class="survey-errors" style="display: none;">
+            <div class="survey-errors-title">Заполните обязательные поля:</div>
+            <ul id="errorsList"></ul>
+        </div>
+
+        <div class="survey-form-actions">
+            <button type="submit"
+                class="survey-btn survey-btn-primary">Отправить</button>
+        </div>
+    </form>
+
+    <div id="submittedContainer" class="survey-submitted"
+        style="display: none;">
+        <div class="survey-success">Форма успешно заполнена.</div>
+        <pre id="formDataOutput"></pre>
+    </div>
+</div>
+
+<script>
+  document.getElementById('filledAt').value = new Date().toISOString().split('T')[0];
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('surveyForm');
+            const errorsContainer = document.getElementById('errorsContainer');
+            const errorsList = document.getElementById('errorsList');
+            const submittedContainer = document.getElementById('submittedContainer');
+            const formDataOutput = document.getElementById('formDataOutput');
+            const lockedDateInputs = document.querySelectorAll('.locked-date');
+            
+            // Prevent manual editing of locked dates while keeping the native icon.
+            lockedDateInputs.forEach(input => {
+                const blockPointer = event => event.preventDefault();
+                
+                input.addEventListener('pointerdown', blockPointer);
+                input.addEventListener('mousedown', blockPointer);
+                input.addEventListener('touchstart', blockPointer);
+                input.addEventListener('focus', () => input.blur());
+                input.addEventListener('keydown', event => event.preventDefault());
+            });
+            
+            // Управление видимостью групп на основе ответов
+            const q1_5Radios = document.querySelectorAll('input[name="q1_5"]');
+            const affiliatesGroup = document.getElementById('affiliatesGroup');
+            
+            q1_5Radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'true') {
+                        affiliatesGroup.style.display = 'block';
+                    } else {
+                        affiliatesGroup.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Управление видимостью комментариев для q2_2
+            const q2_2Radios = document.querySelectorAll('input[name="q2_2"]');
+            const q2_2Group = document.getElementById('q2_2_group');
+            
+            q2_2Radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'true') {
+                        q2_2Group.style.display = 'block';
+                    } else {
+                        q2_2Group.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Управление видимостью комментариев для q2_3
+            const q2_3Radios = document.querySelectorAll('input[name="q2_3"]');
+            const q2_3Group = document.getElementById('q2_3_group');
+            
+            q2_3Radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'true') {
+                        q2_3Group.style.display = 'block';
+                    } else {
+                        q2_3Group.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Управление повторяющейся группой аффилированных лиц
+const addAffiliateBtn = document.getElementById('addAffiliateBtn');
+const affiliatesContainer = document.getElementById('affiliatesContainer');
+let affiliateCounter = 0;
+let currentAffiliateCount = 0;
+
+addAffiliateBtn.addEventListener('click', function() {
+    affiliateCounter++;
+    currentAffiliateCount++;
+    const affiliateItem = document.createElement('div');
+    affiliateItem.className = 'survey-repeatable-item';
+    affiliateItem.setAttribute('data-affiliate-id', affiliateCounter);
+    affiliateItem.innerHTML = `
+        <div class="survey-repeatable-item-header">
+            <div class="survey-subtitle">Аффилированное лицо #${currentAffiliateCount}</div>
+            <button type="button" class="survey-btn survey-btn-danger remove-affiliate-btn">Удалить</button>
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateFullName_${affiliateCounter}" class="required">Аффилированное лицо (ФИО полностью)</label>
+            <input type="text" id="affiliateFullName_${affiliateCounter}" name="affiliateFullName[]" required>
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateRelation_${affiliateCounter}" class="required">Степень аффилированности</label>
+            <input type="text" id="affiliateRelation_${affiliateCounter}" name="affiliateRelation[]" required>
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateOrgName_${affiliateCounter}" class="required">Наименование организации</label>
+            <input type="text" id="affiliateOrgName_${affiliateCounter}" name="affiliateOrgName[]" required>
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateOrgInn_${affiliateCounter}">ИНН организации</label>
+            <input type="text" id="affiliateOrgInn_${affiliateCounter}" name="affiliateOrgInn[]" pattern="\\d{10}|\\d{12}">
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateShare_${affiliateCounter}">Доля владения (%)</label>
+            <input type="number" id="affiliateShare_${affiliateCounter}" name="affiliateShare[]" min="0" max="100" step="0.01">
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliatePosition_${affiliateCounter}">Позиция аффилированного лица в органе управления</label>
+            <input type="text" id="affiliatePosition_${affiliateCounter}" name="affiliatePosition[]">
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateRelationToRmRail_${affiliateCounter}">Отношение организации к РМ Рейл</label>
+            <input type="text" id="affiliateRelationToRmRail_${affiliateCounter}" name="affiliateRelationToRmRail[]">
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateCeo_${affiliateCounter}">Генеральный директор (ФИО полностью)</label>
+            <input type="text" id="affiliateCeo_${affiliateCounter}" name="affiliateCeo[]">
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateOwners20_${affiliateCounter}">Учредители с долей свыше 20% (ФИО)</label>
+            <textarea id="affiliateOwners20_${affiliateCounter}" name="affiliateOwners20[]"></textarea>
+        </div>
+        <div class="survey-form-row">
+            <label for="affiliateComment_${affiliateCounter}">Комментарий</label>
+            <textarea id="affiliateComment_${affiliateCounter}" name="affiliateComment[]"></textarea>
+        </div>
+    `;
+    
+    affiliatesContainer.appendChild(affiliateItem);
+    
+    // Добавляем обработчик для кнопки удаления
+    const removeBtn = affiliateItem.querySelector('.remove-affiliate-btn');
+    removeBtn.addEventListener('click', function() {
+        affiliateItem.remove();
+        currentAffiliateCount--;
+        updateAffiliateNumbers();
+    });
+});
+
+// Функция для обновления номеров аффилированных лиц
+function updateAffiliateNumbers() {
+    const items = affiliatesContainer.querySelectorAll('.survey-repeatable-item');
+    items.forEach((item, index) => {
+        const subtitle = item.querySelector('.survey-subtitle');
+        subtitle.textContent = `Аффилированное лицо #${index + 1}`;
+    });
+    currentAffiliateCount = items.length;
+}
+            
+            // Обработка отправки формы
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Сброс ошибок
+                errorsContainer.style.display = 'none';
+                errorsList.innerHTML = '';
+                
+                // Сбор ошибок
+                const errors = [];
+                
+                // Проверка обязательных полей в заявлении
+                const requiredFields = form.querySelectorAll('[required]');
+                requiredFields.forEach(field => {
+                    if (!field.value && field.type !== 'checkbox' && field.type !== 'radio') {
+                        const label = form.querySelector(`label[for="${field.id}"]`);
+                        errors.push(label ? label.textContent.trim() : field.name);
+                    }
+                    
+                    if (field.type === 'checkbox' && !field.checked) {
+                        const label = form.querySelector(`label[for="${field.id}"]`);
+                        errors.push(label ? label.textContent.trim() : field.name);
+                    }
+                });
+                
+                // Проверка радиокнопок
+                const radioGroups = {};
+                form.querySelectorAll('input[type="radio"][required]').forEach(radio => {
+                    const name = radio.name;
+                    if (!radioGroups[name]) {
+                        radioGroups[name] = false;
+                    }
+                    
+                    if (radio.checked) {
+                        radioGroups[name] = true;
+                    }
+                });
+                
+                for (const groupName in radioGroups) {
+                    if (!radioGroups[groupName]) {
+                        const firstRadio = form.querySelector(`input[name="${groupName}"]`);
+                        const label = firstRadio.closest('.survey-form-row').querySelector('.survey-label');
+                        errors.push(label ? label.textContent.trim() : groupName);
+                    }
+                }
+                
+                // Проверка специальных условий
+                if (document.querySelector('input[name="q1_5"]:checked')?.value === 'true') {
+                    const affiliateFields = document.querySelectorAll('input[name="affiliateFullName[]"]');
+                    if (affiliateFields.length === 0) {
+                        errors.push('Добавьте хотя бы одно аффилированное лицо');
+                    } else {
+                        affiliateFields.forEach(field => {
+                            if (!field.value) {
+                                errors.push('Заполните ФИО аффилированного лица');
+                            }
+                        });
+                    }
+                }
+                
+                // Проверка ИНН
+                const innFields = document.querySelectorAll('input[name="affiliateOrgInn[]"]');
+                innFields.forEach(field => {
+                    if (field.value && !/^\d{10}$|^\d{12}$/.test(field.value)) {
+                        errors.push('ИНН должен содержать 10 или 12 цифр');
+                    }
+                });
+                
+                // Отображение ошибок или успешной отправки
+                if (errors.length > 0) {
+                    errors.forEach(error => {
+                        const li = document.createElement('li');
+                        li.textContent = error;
+                        errorsList.appendChild(li);
+                    });
+                    errorsContainer.style.display = 'block';
+                    window.scrollTo(0, 0);
+                } else {
+                    // Формируем объект с данными формы
+                    const formData = new FormData(form);
+                    const data = {};
+                    
+                    for (const [key, value] of formData.entries()) {
+                        if (key.endsWith('[]')) {
+                            const cleanKey = key.slice(0, -2);
+                            if (!data[cleanKey]) {
+                                data[cleanKey] = [];
+                            }
+                            data[cleanKey].push(value);
+                        } else {
+                            data[key] = value;
+                        }
+                    }
+                    
+                    // Преобразуем массивы с одним элементом в строки
+                    for (const key in data) {
+                        if (Array.isArray(data[key]) && data[key].length === 1) {
+                            data[key] = data[key][0];
+                        }
+                    }
+                    
+                    formDataOutput.textContent = JSON.stringify(data, null, 2);
+                    form.style.display = 'none';
+                    submittedContainer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+
+<style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .survey-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .survey-intro {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .survey-intro h1 {
+            color: #075ea6;
+            margin-bottom: 20px;
+            font-weight: 500;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .survey-intro p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .survey-section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .survey-section h2, .survey-section h3 {
+            color: #075ea6;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .survey-section h2 {
+            font-size: 20px;
+        }
+
+        .survey-section h3 {
+            font-size: 18px;
+        }
+
+        .survey-form-row {
+            margin-bottom: 15px;
+        }
+
+        .survey-form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .survey-label {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .survey-checkbox,
+        .survey-radio {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .survey-inline {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .survey-sep {
+            margin: 0 10px;
+        }
+
+        .survey-confirmations {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .survey-child-group {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            border-left: 3px solid #075ea6;
+        }
+
+        .survey-repeatable {
+            margin-top: 15px;
+        }
+
+        .survey-repeatable-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .survey-repeatable-item {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+        }
+
+        .survey-repeatable-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .survey-subtitle {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .survey-btn {
+            padding: 8px 15px;
+            background-color: #075ea6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .survey-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .survey-btn-danger {
+            background-color: #e74c3c;
+        }
+
+        .survey-btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .survey-btn-primary {
+            background-color: #075ea6;
+            font-size: 16px;
+            padding: 12px 25px;
+        }
+
+        .survey-btn-primary:hover {
+            baxt-align: center;
+        }
+
+        .survey-errors {
+            background-color: #ffeaea;
+            border: 1px solid #e74c3c;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .survey-errors-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #c0392b;
+        }
+
+        .survey-errors ul {
+            margin-left: 20px;
+        }
+
+        .survey-errors li {
+            margin-bottom: 5px;
+        }
+
+        .survey-success {
+            background-color: #e8f6ef;
+            border: 1px solid #2ecc71;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .survey-muted {
+            color: #7f8c8d;
+            font-style: italic;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+    </style>
+</body>
+
